@@ -3,8 +3,12 @@
 public class FooBarBaz {
 
 	public static void main(String[] args) {
-			for(int limit = 1; limit <=50; limit++){
-				if(limit % 3 == 0){
+			int limit = 1;
+			while(limit <= 50){	
+				if(limit % 3 == 0 && limit % 5 == 0){
+					System.out.println("foobar");
+				}
+				else if(limit % 3 == 0){
 					System.out.println("foo");
 				}
 				else if(limit % 5 == 0){
@@ -13,6 +17,7 @@ public class FooBarBaz {
 				else{
 					System.out.println(limit);
 				}
+				limit ++;
 			}
 	}
 
