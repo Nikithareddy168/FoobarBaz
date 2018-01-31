@@ -1,23 +1,21 @@
-
+import java.util.Scanner;
 
 public class FooBarBaz {
-
+	FooBarBaz(String entry){
+		int countUpTo = Integer.parseInt(entry);
+		System.out.println("upper Limit ========"+countUpTo);
+		for(int i = 1; i <= 110 ;i++){
+			// Upper limit set as 110
+		}
+	}
+	
+	
 	public static void main(String[] args) {
-			int limit = 1;
-			while(limit <= 50){	
-				if(limit % 3 == 0 && limit % 5 == 0){
-					System.out.println("foobar");
-				}
-				else if(limit % 3 == 0){
-					System.out.println("foo");
-				}
-				else if(limit % 5 == 0){
-					System.out.println("bar");
-				}
-				else{
-					System.out.println(limit);
-				}
-				limit ++;
+			Scanner scanner = new Scanner(System.in);
+			while(true){
+				System.out.println("enter a number : ");
+				String entry = scanner.nextLine();
+				new FooBarBaz(entry);
 			}
 	}
 
