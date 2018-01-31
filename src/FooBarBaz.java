@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class FooBarBaz {
 	FooBarBaz(int countUpTo){
 		//int countUpTo = Integer.parseInt(entry);
-		System.out.println("upper Limit ========"+countUpTo);
+		//System.out.println("upper Limit ========"+countUpTo);
 		for(int i = 1; i <= countUpTo ;i++){
 			// code for "FooBarBaz"
 			if(i % 3 == 0 && i % 5 == 0 && i % 7 == 0){
@@ -37,7 +37,7 @@ public class FooBarBaz {
 	
 	public static void main(String[] args) {
 			Scanner scanner = new Scanner(System.in);
-			while(true){
+			while(true){ // running the loop until the user enters stop
 				
 					System.out.println("enter a number : ");
 					String entry = scanner.next();
