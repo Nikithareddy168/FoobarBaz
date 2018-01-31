@@ -9,11 +9,11 @@ public class FooBarBaz {
 		//int countUpTo = Integer.parseInt(entry);
 		//System.out.println("upper Limit ========"+countUpTo);
 		 //List<String> ls = new ArrayList<String>();
-		File f1 = new File("d:\\t.txt");
+		File f1 = new File("d:\\foobarbaz.txt");
 		  if(f1.exists()){
 			  f1.delete();
 		  }
-		  File f = new File("d:\\t.txt");
+		  File f = new File("d:\\foobarbaz.txt");
 		  if(f.exists()){
 			  f.createNewFile();
 		  }
