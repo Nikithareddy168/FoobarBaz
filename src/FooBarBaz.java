@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class FooBarBaz {
-	FooBarBaz(String entry){
-		int countUpTo = Integer.parseInt(entry);
+	FooBarBaz(int countUpTo){
+		//int countUpTo = Integer.parseInt(entry);
 		System.out.println("upper Limit ========"+countUpTo);
 		for(int i = 1; i <= countUpTo ;i++){
 			// code for "FooBarBaz"
@@ -38,9 +38,22 @@ public class FooBarBaz {
 	public static void main(String[] args) {
 			Scanner scanner = new Scanner(System.in);
 			while(true){
-				System.out.println("enter a number : ");
-				String entry = scanner.nextLine();
-				new FooBarBaz(entry);
+				
+					System.out.println("enter a number : ");
+					String entry = scanner.next();
+					if(entry.equalsIgnoreCase("stop")){
+						System.exit(0);
+					}
+					else{
+						try {
+							int num  = Integer.parseInt(entry);
+							new FooBarBaz(num);
+						} catch (NumberFormatException e) {
+						    System.out.println("Invalid Input");
+						}
+					
+						
+					}
 			}
 	}
 
