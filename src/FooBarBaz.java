@@ -73,19 +73,21 @@ public class FooBarBaz {
         bw.close();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         while (true) { // running the loop until the user enters stop
-
             System.out.println("enter a number : ");
             String entry = scanner.next();
-            if (entry.equalsIgnoreCase("stop")) {
+            if ("stop".equalsIgnoreCase(entry)) {
                 System.exit(0);
             }
             else {
                 try {
                     int num = Integer.parseInt(entry);
                     new FooBarBaz(num);
+                    if (num >= 110){
+                        System.out.println("Invalid Input");
+                    };
                 }
                 catch (NumberFormatException e) {
                     System.out.println("Invalid Input");
