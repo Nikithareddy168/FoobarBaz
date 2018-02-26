@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FooBarBaz {
+   static File f1 = new File("d:\\foobarbaz.txt");
    public void run() throws IOException{
        while(true){
            Scanner scanner = new Scanner(System.in);
@@ -23,7 +24,16 @@ public class FooBarBaz {
         else {
             try {
                 int num = Integer.parseInt(entry);
-                replace(num);
+                if (f1.exists()) {
+                    f1.delete();
+                }
+                if (f1.exists()) {
+                    f1.createNewFile();
+                }
+                for (int i = 1; i <= num; i++) {
+                    
+                write_file(i);
+                }
                 if (num >= 110){
                     System.out.println("Invalid Input");
                 };
@@ -33,73 +43,61 @@ public class FooBarBaz {
             }
         }
     }
-    private void replace(int num) throws IOException{
-        File f1 = new File("d:\\foobarbaz.txt");
-        if (f1.exists()) {
-            f1.delete();
-        }
-        File f = new File("d:\\foobarbaz.txt");
-        if (f.exists()) {
-            f.createNewFile();
-        }
-        FileWriter fw = new FileWriter(f, true); // true is for append
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (int i = 1; i <= num; i++) {
-      
-                // code for "FooBarBaz"
-                try {
-                    if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+    public String replace(int num) throws IOException{
+                    if (num % 3 == 0 && num % 5 == 0 && num % 7 == 0) {
                         // System.out.println("FooBarBaz");
-                        bw.append("FooBarBaz");
-                        bw.newLine();
-                    }
-                    else if (i % 3 == 0 && i % 5 == 0) {
-                        // System.out.println("FooBar");
-                        bw.append("FooBar");
-                        bw.newLine();
+                        return "FooBarBaz";
 
                     }
-                    else if (i % 5 == 0 && i % 7 == 0) {
+                    else if (num % 3 == 0 && num % 5 == 0) {
+                        // System.out.println("FooBar");
+                        return "FooBar";
+
+                    }
+                    else if (num % 5 == 0 && num % 7 == 0) {
                         // System.out.println("BarBaz");
-                        bw.append("BarBaz");
-                        bw.newLine();
+                        return "BarBaz";
                     }
-                    else if (i % 3 == 0 && i % 7 == 0) {
+                    else if (num % 3 == 0 && num % 7 == 0) {
                         // System.out.println("FooBaz");
-                        bw.append("FooBaz");
-                        bw.newLine();
+                        return "FooBaz";
                     }
-                    else if (i % 3 == 0) {
+                    else if (num % 3 == 0) {
                         // System.out.println("Foo");
-                        bw.append("Foo");
-                        bw.newLine();
+                        return "Foo";
                     }
-                    else if (i % 5 == 0) {
+                    else if (num % 5 == 0) {
                         // System.out.println("Bar");
-                        bw.append("Bar");
-                        bw.newLine();
+                        return "Bar";
                     }
-                    else if (i % 7 == 0) {
+                    else if (num % 7 == 0) {
                         // System.out.println("Baz");
-                        bw.append("Baz");
-                        bw.newLine();
+                        return "Baz";
                     }
                     else {
-                        // System.out.println(i);
-                        bw.append(Integer.toString(i));
-                        bw.newLine();
+                        return Integer.toString(num);
                     }
-                }
-                catch (Exception ex) {
-
-                    ex.printStackTrace();
-
-                }
-            }
-            bw.close();
         }
             
-        
+    private void write_file(int num) throws IOException{
+        System.out.println("=="+num);
+        String l = replace(num);
+        System.out.println("=lllllllllllll="+l);
+       
+      /*  if (f1.exists()) {
+            f1.delete();
+        }
+        //File f = new File("d:\\foobarbaz.txt");
+        if (f1.exists()) {
+            f1.createNewFile();
+        }*/
+        FileWriter fw = new FileWriter(f1, true); // true is for append
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.append(l);
+        bw.newLine();
+        bw.close();
+        fw.close();
+    }
     
 
     public static void main(String[] args) throws IOException{
@@ -108,5 +106,5 @@ public class FooBarBaz {
         fbb.run();
         
     }
-
 }
+
