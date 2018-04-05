@@ -22,11 +22,21 @@ public class FooBarBazTest {
         FooBarBaz fbb = new FooBarBaz();
         assertEquals("Baz", fbb.replace(14));
     }
-
     @Test
     public void testFooBar() throws IOException {
         FooBarBaz fbb = new FooBarBaz();
         assertEquals("FooBar", fbb.replace(15));
+    }
+    @Test
+    public void testBarBaz() throws IOException {
+        FooBarBaz fbb = new FooBarBaz();
+        assertEquals("BarBaz", fbb.replace(35));
+    }
+    
+    @Test
+    public void testFooBaz() throws IOException {
+        FooBarBaz fbb = new FooBarBaz();
+        assertEquals("FooBaz", fbb.replace(21));
     }
 
     @Test
@@ -42,9 +52,14 @@ public class FooBarBazTest {
     }
 
     @Test
-    public void testValidate() throws IOException {
+    public void testNotValid() throws IOException {
         FooBarBaz fbb = new FooBarBaz();
         assertEquals("Enter Positive integer value", fbb.validate("-1"));
+    }
+    @Test
+    public void testValid() throws IOException {
+        FooBarBaz fbb = new FooBarBaz();
+        assertEquals("isnum", fbb.validate("109"));
     }
 
 }

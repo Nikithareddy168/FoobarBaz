@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FooBarBaz {
-    static File f1 = new File("d:\\foobarbaz.txt");
+    static File f1 = new File("foobarbaz.txt");
 
     public void run() throws IOException {
         while (true) {
@@ -22,7 +22,10 @@ public class FooBarBaz {
         if (num <= 0) {
             return "Enter Positive integer value";
         }
-        return "isnum";
+        else{
+            return "isnum";
+        }
+        
     }
 
     private void exit_or_continue(String entry) throws IOException {
@@ -39,13 +42,11 @@ public class FooBarBaz {
                     f1.createNewFile();
                 }
                 for (int i = 1; i <= num; i++) {
-
                     write_file(i);
                 }
-                if (num >= 110) {
+                if (num >= 110 || num < 0) {
                     System.out.println("Invalid Input");
                 }
-                ;
             }
             catch (NumberFormatException e) {
                 System.out.println("Invalid Input");
@@ -81,9 +82,7 @@ public class FooBarBaz {
     }
 
     private void write_file(int num) throws IOException {
-        // System.out.println("=="+num);
         String l = replace(num);
-        // System.out.println("=lllllllllllll="+l);
         FileWriter fw = new FileWriter(f1, true); // true is for append
         BufferedWriter bw = new BufferedWriter(fw);
         bw.append(l);
